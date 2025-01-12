@@ -186,16 +186,6 @@ for i in range(1, N+1):
     k += 1
 
 
-#Plot the nozzle contour    
-plt.figure(figsize=(7, 7))
-plt.plot(xwallList, ywallList, linestyle='-', color='black', label='Nozzle Contour')
-plt.title('Nozzle Contour')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.gca().set_aspect('equal', adjustable='box')
-plt.legend()
-plt.show()
-
 #Save the points to a dat file
 filesave = input("Do you want to save the nozzle contour to a dat file? (y/N)")
 
@@ -207,6 +197,18 @@ if filesave == 'y' or 'Y':
             file.write('X Y\n')  # Write a header
             for x, y in zip(xwallList, ywallList):
                 file.write(f'{x:.6f} {y:.6f}\n')
+
+#Plot the nozzle contour    
+plt.figure(figsize=(7, 7))
+plt.plot(xwallList, ywallList, linestyle='-', color='black', label='Nozzle Contour')
+plt.title('Nozzle Contour')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.gca().set_aspect('equal', adjustable='box')
+plt.legend()
+plt.show()
+
+
 
 
 
