@@ -1,4 +1,6 @@
 import numpy as np
+import tkinter as tk
+from tkinter import filedialog
 import math
 import matplotlib.pyplot as plt
 
@@ -30,6 +32,10 @@ def get_mach(gam, nu):
 v_exit = P_M_angle(M_exit, gamma)
 theta_max = v_exit/2
 d_theta = theta_max/N
+
+#Warning if theta max is too large
+if theta_max > 45:
+        print("Warning! The turning angle of the nozzle is higher that 45 degrees!")
 
 #Lists initialization
 thetaList, vList, KplusList, KminusList, MList, muList, xList, yList = [], [], [], [], [], [], [], []
@@ -180,7 +186,7 @@ for i in range(1, N+1):
     k += 1
 
 
-    
+#Plot the nozzle contour    
 plt.figure(figsize=(7, 7))
 plt.plot(xwallList, ywallList, linestyle='-', color='black', label='Nozzle Contour')
 plt.title('Nozzle Contour')
@@ -189,6 +195,18 @@ plt.ylabel('y')
 plt.gca().set_aspect('equal', adjustable='box')
 plt.legend()
 plt.show()
+
+#Save the points to a dat file
+filesave = input("Do you want to save the nozzle contour to a dat file? (y/N)")
+
+if filesave == 'y' or 'Y':
+        filename = input("Enter the filename (with .dat extension): ")
+
+        # Save to the file
+        with open(filename, 'w') as file:
+            file.write('X Y\n')  # Write a header
+            for x, y in zip(xwallList, ywallList):
+                file.write(f'{x:.6f} {y:.6f}\n')
 
 
 
