@@ -7,3 +7,5 @@ The Number of Characteristics must be an integer greater than 1!!
 
 If "theta_max" is greater than 45 degrees, it may be a problem for your nozzle design || There is a warning in the code regarding that
 
+
+
