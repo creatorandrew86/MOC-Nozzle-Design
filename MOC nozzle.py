@@ -187,9 +187,9 @@ for i in range(1, N+1):
 
 
 #Save the points to a dat file
-filesave = input("Do you want to save the nozzle contour to a dat file? (y/N)")
+filesave = input("Do you want to save the nozzle contour to a dat file? (y/N) \n")
 
-if filesave == 'y' or 'Y':
+if filesave == 'y':
         filename = input("Enter the filename (with .dat extension): ")
 
         # Save to the file
@@ -197,6 +197,8 @@ if filesave == 'y' or 'Y':
             file.write('X Y\n')  # Write a header
             for x, y in zip(xwallList, ywallList):
                 file.write(f'{x:.6f} {y:.6f}\n')
+
+        print(f"Data saved to {filename}")
 
 #Plot the nozzle contour    
 plt.figure(figsize=(7, 7))
