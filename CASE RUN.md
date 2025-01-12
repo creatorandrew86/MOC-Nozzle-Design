@@ -1,4 +1,4 @@
-## Case run for MOC nozzle design!
+## Case run for MOC nozzle design
 
 ## Program Inputs
 
